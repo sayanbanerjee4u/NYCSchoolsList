@@ -96,6 +96,9 @@ class NYCSchoolModelView: NSObject {
     func setSchoolSat()->Bool {
         
         //schoolSat = NYCSchoolModelView.arrNYCSchoolSat.filter { $0.dbn == self.school?.dbn }.first ?? nil
+        
+        let arr = NYCSchoolModelView.arrNYCSchoolSat.sorted (by:{$0.dbn > $1.dbn})
+        
         //If there is no match with the DBN we are taking the first object from the list to display result, This is a hack
         schoolSat = NYCSchoolModelView.arrNYCSchoolSat.filter { $0.dbn == self.school?.dbn }.first ?? NYCSchoolModelView.arrNYCSchoolSat.first
         if (schoolSat == nil){
